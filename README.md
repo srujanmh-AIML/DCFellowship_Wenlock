@@ -47,28 +47,47 @@ This project is a Flask-based Hospital Display System designed to manage and dis
 
 The project is structured for modularity and clarity:
 
-.
 ├── app.py                  # Main Flask application file defining routes, views, and database interaction.
+
 ├── main.py                 # Entry point script for running the Flask development server.
+
 ├── models.py               # Defines SQLAlchemy database models for Token, InventoryItem, Alert, and Schedule.
+
 ├── populate_db.py          # Utility script to initialize and populate the database with sample data.
+
 ├── requirements.txt        # Lists Python dependencies required for the project.
+
 ├── static/                 # Contains static assets served by the Flask application.
+
 │   ├── css/
 │   │   └── style.css       # Global stylesheet providing a unified look and feel.
+
 │   └── js/
 │       ├── dashboard.js    # JavaScript for dynamic interactions and data updates on the dashboard.
+
 │       ├── patient.js      # JavaScript for real-time updates and interactive elements on the patient display.
+
+
 │       └── staff.js        # JavaScript for handling staff panel controls, form submissions, and data refreshes.
+
 ├── templates/              # Jinja2 HTML templates for the web interfaces.
+
 │   ├── base.html           # Base template, defining the common layout (header, nav, footer) for all pages.
+
 │   ├── dashboard.html      # HTML for the administrative dashboard overview.
+
 │   ├── patient.html        # HTML for the patient-facing display screen.
+
 │   └── staff.html          # HTML for the staff control and management panel.
+
 └── data/                   # (Historical/Example Data Files - Primarily for reference or older implementations)
+
 ├── alerts.json         # Sample JSON data structure for alerts.
+
 ├── inventory.json      # Sample JSON data structure for inventory items.
+
 ├── schedules.json      # Sample JSON data structure for schedules.
+
 └── tokens.json         # Sample JSON data structure for tokens and queues.
 
 *Note*: While the current application (`app.py`, `models.py`) leverages SQLAlchemy for persistent data storage, the `.json` files in the `data/` directory contain sample data and might represent an older file-based implementation approach or serve as a reference for data structures.
