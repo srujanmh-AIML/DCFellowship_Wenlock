@@ -260,6 +260,7 @@ python3 main.py
 ```
 Screenshots of the demo website is given below :
 
+
 ![Screenshot 2025-06-10 203644](https://github.com/user-attachments/assets/c2aaaf27-b260-460a-9400-605b0d78a69b)
 
 
