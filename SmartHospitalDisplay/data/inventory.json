@@ -1,0 +1,97 @@
+{
+  "last_updated": "2025-06-10T07:36:44.777027",
+  "medications": {
+    "Amoxicillin 250mg": {
+      "category": "Antibiotic",
+      "expiry_date": "2025-08-15",
+      "max_capacity": 500,
+      "min_threshold": 50,
+      "quantity": 75,
+      "unit": "capsules"
+    },
+    "Aspirin 75mg": {
+      "category": "Cardiovascular",
+      "expiry_date": "2026-03-10",
+      "max_capacity": 500,
+      "min_threshold": 100,
+      "quantity": 180,
+      "unit": "tablets"
+    },
+    "Insulin Glargine": {
+      "category": "Diabetes",
+      "expiry_date": "2025-10-20",
+      "max_capacity": 100,
+      "min_threshold": 30,
+      "quantity": 50,
+      "unit": "vials"
+    },
+    "Morphine 10mg": {
+      "category": "Controlled Substance",
+      "expiry_date": "2025-07-30",
+      "max_capacity": 50,
+      "min_threshold": 20,
+      "quantity": 15,
+      "unit": "ampoules"
+    },
+    "Omeprazole 20mg": {
+      "category": "Gastric",
+      "expiry_date": "2025-11-15",
+      "max_capacity": 300,
+      "min_threshold": 50,
+      "quantity": 120,
+      "unit": "capsules"
+    },
+    "Paracetamol 500mg": {
+      "category": "Analgesic",
+      "expiry_date": "2025-12-31",
+      "max_capacity": 1000,
+      "min_threshold": 100,
+      "quantity": 250,
+      "unit": "tablets"
+    }
+  },
+  "supplies": {
+    "Blood Collection Tubes": {
+      "category": "Laboratory",
+      "max_capacity": 500,
+      "min_threshold": 100,
+      "quantity": 180,
+      "unit": "pieces"
+    },
+    "Gauze Bandages": {
+      "category": "Wound Care",
+      "max_capacity": 300,
+      "min_threshold": 100,
+      "quantity": 95,
+      "unit": "rolls"
+    },
+    "IV Cannula 18G": {
+      "category": "IV Supplies",
+      "max_capacity": 200,
+      "min_threshold": 75,
+      "quantity": 55,
+      "unit": "pieces"
+    },
+    "N95 Masks": {
+      "category": "PPE",
+      "max_capacity": 500,
+      "min_threshold": 100,
+      "quantity": 120,
+      "unit": "pieces"
+    },
+    "Surgical Gloves (Medium)": {
+      "category": "PPE",
+      "max_capacity": 1000,
+      "min_threshold": 200,
+      "quantity": 450,
+      "unit": "pairs"
+    },
+    "Syringes 10ml": {
+      "category": "Injection Supplies",
+      "max_capacity": 800,
+      "min_threshold": 150,
+      "quantity": 320,
+      "unit": "pieces"
+    }
+  }
+}

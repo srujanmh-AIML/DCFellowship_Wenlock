@@ -1,0 +1,244 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard - Wenlock Hospital{% endblock %}
+
+{% block content %}
+<div class="row mb-4">
+    <div class="col-12">
+        <div class="d-flex justify-content-between align-items-center">
+            <h2><i class="fas fa-tachometer-alt me-2"></i>Hospital Dashboard</h2>
+            <button id="refreshBtn" class="btn btn-primary">
+                <i class="fas fa-sync-alt"></i> Refresh
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- System Status Cards -->
+<div class="row mb-4">
+    <div class="col-md-3">
+        <div class="card text-white bg-primary">
+            <div class="card-body text-center">
+                <i class="fas fa-tv fa-2x mb-2"></i>
+                <h4>73</h4>
+                <p class="mb-0">Display Screens</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card text-white bg-success">
+            <div class="card-body text-center">
+                <i class="fas fa-check-circle fa-2x mb-2"></i>
+                <h4 id="activeScreens">73</h4>
+                <p class="mb-0">Screens Online</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card text-white bg-info">
+            <div class="card-body text-center">
+                <i class="fas fa-users fa-2x mb-2"></i>
+                <h4 id="totalPatients">-</h4>
+                <p class="mb-0">Patients in Queue</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card text-white bg-warning">
+            <div class="card-body text-center">
+                <i class="fas fa-exclamation-triangle fa-2x mb-2"></i>
+                <h4 id="activeAlertsCount">-</h4>
+                <p class="mb-0">Active Alerts</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Emergency Alerts Section -->
+<div class="row mb-4">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0">
+                    <i class="fas fa-exclamation-triangle me-2"></i>
+                    Emergency Alerts & Notifications
+                </h5>
+            </div>
+            <div class="card-body">
+                <div id="alertsContainer">
+                    <div class="text-center py-3">
+                        <div class="spinner-border text-primary" role="status">
+                            <span class="visually-hidden">Loading alerts...</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Main Content Row -->
+<div class="row">
+    <!-- Token Queue Summary -->
+    <div class="col-lg-6 mb-4">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0">
+                    <i class="fas fa-ticket-alt me-2"></i>
+                    Token Queue Summary
+                </h5>
+            </div>
+            <div class="card-body">
+                <div id="tokenSummary">
+                    <div class="text-center py-3">
+                        <div class="spinner-border text-primary" role="status">
+                            <span class="visually-hidden">Loading token data...</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Pharmacy Inventory Status -->
+    <div class="col-lg-6 mb-4">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0">
+                    <i class="fas fa-pills me-2"></i>
+                    Pharmacy Inventory Status
+                </h5>
+            </div>
+            <div class="card-body">
+                <div id="inventorySummary">
+                    <div class="text-center py-3">
+                        <div class="spinner-border text-primary" role="status">
+                            <span class="visually-hidden">Loading inventory data...</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <!-- OT & Consultation Schedule -->
+    <div class="col-lg-8 mb-4">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0">
+                    <i class="fas fa-calendar-alt me-2"></i>
+                    Today's Schedule Overview
+                </h5>
+            </div>
+            <div class="card-body">
+                <div id="scheduleSummary">
+                    <div class="text-center py-3">
+                        <div class="spinner-border text-primary" role="status">
+                            <span class="visually-hidden">Loading schedule data...</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Quick Actions -->
+    <div class="col-lg-4 mb-4">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0">
+                    <i class="fas fa-bolt me-2"></i>
+                    Quick Actions
+                </h5>
+            </div>
+            <div class="card-body">
+                <div class="d-grid gap-2">
+                    <a href="{{ url_for('patient_display') }}" class="btn btn-outline-primary">
+                        <i class="fas fa-eye me-2"></i>View Patient Display
+                    </a>
+                    <a href="{{ url_for('staff_panel') }}" class="btn btn-outline-success">
+                        <i class="fas fa-cogs me-2"></i>Open Staff Panel
+                    </a>
+                    <button class="btn btn-outline-warning" onclick="window.print()">
+                        <i class="fas fa-print me-2"></i>Print Report
+                    </button>
+                </div>
+
+                <hr>
+
+                <h6 class="text-muted mb-3">System Information</h6>
+                <small class="text-muted">
+                    <strong>System Version:</strong> v2.1.0<br>
+                    <strong>Last Backup:</strong> <span id="lastBackup">Loading...</span><br>
+                    <strong>Uptime:</strong> <span id="systemUptime">Loading...</span>
+                </small>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Department Status Grid -->
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0">
+                    <i class="fas fa-building me-2"></i>
+                    Department Status Overview
+                </h5>
+            </div>
+            <div class="card-body">
+                <div class="row" id="departmentStatus">
+                    <!-- Department cards will be populated by JavaScript -->
+                    <div class="col-md-3 mb-3">
+                        <div class="card border-success">
+                            <div class="card-body text-center">
+                                <i class="fas fa-heart text-success fa-2x mb-2"></i>
+                                <h6>Cardiology</h6>
+                                <span class="status-indicator status-available"></span>
+                                <small>Available</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <div class="card border-warning">
+                            <div class="card-body text-center">
+                                <i class="fas fa-bone text-warning fa-2x mb-2"></i>
+                                <h6>Orthopedics</h6>
+                                <span class="status-indicator status-busy"></span>
+                                <small>Busy</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <div class="card border-success">
+                            <div class="card-body text-center">
+                                <i class="fas fa-child text-success fa-2x mb-2"></i>
+                                <h6>Pediatrics</h6>
+                                <span class="status-indicator status-available"></span>
+                                <small>Available</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <div class="card border-success">
+                            <div class="card-body text-center">
+                                <i class="fas fa-user-md text-success fa-2x mb-2"></i>
+                                <h6>General Medicine</h6>
+                                <span class="status-indicator status-available"></span>
+                                <small>Available</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/dashboard.js') }}"></script>
+{% endblock %}
