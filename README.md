@@ -257,3 +257,16 @@ To enable Flask's debug mode (which provides automatic code reloading and a debu
 ```bash
 export FLASK_DEBUG=1
 python3 main.py
+
+Screenshots of the demo website is given below :
+
+![Screenshot 2025-06-10 203818](https://github.com/user-attachments/assets/6fe94ead-6ec4-494d-8231-e5bff6a80ec3)
+![Screenshot 2025-06-10 203846](https://github.com/user-attachments/assets/3c52e69c-8a74-4708-b6a0-6c5e067a8a17)
+![Screenshot 2025-06-10 203913](https://github.com/user-attachments/assets/315e0808-5a0c-4621-8c26-4e9f5c616ad0)
+![Screenshot 2025-06-10 203946](https://github.com/user-attachments/assets/fa17dd6b-5404-402c-8108-6390482d16a5)
+![Screenshot 2025-06-10 204012](https://github.com/user-attachments/assets/b073a324-ce58-414f-b49c-22f544a69ca9)
+![Screenshot 2025-06-10 204034](https://github.com/user-attachments/assets/41183964-926e-4aa4-a51b-81519ea2bfbf)
+![Screenshot 2025-06-10 204100](https://github.com/user-attachments/assets/8074cacf-78d4-4656-bee5-8b215d2a942d)
+![Screenshot 2025-06-10 203644](https://github.com/user-attachments/assets/45119f94-c6a7-4d7f-9cd9-768fc0f658e4)
+![Screenshot 2025-06-10 203720](https://github.com/user-attachments/assets/d7f6d822-3a7a-490d-8925-a5e302ef121a)
+![Screenshot 2025-06-10 203751](https://github.com/user-attachments/assets/4236b039-6db5-46b3-bf72-b5d4e82c165a)
